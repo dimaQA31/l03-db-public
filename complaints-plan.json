@@ -1,0 +1,13 @@
+{
+  "as_of": "2026-09-15",
+  "snapshot": "complaint-context.json",
+  "cases": [
+    {"complaint_id": "C-03", "kind": "dispute", "customer_id": "CUS-0004", "transaction_ids": ["TX-0402", "TX-0401"], "reason_code": "duplicate_charge", "source": "complaint"},
+    {"complaint_id": "C-09", "kind": "limits", "customer_id": "CUS-0010", "source": "complaint"},
+    {"complaint_id": "C-11", "kind": "dispute", "customer_id": "CUS-0009", "transaction_ids": ["TX-0902"], "reason_code": "fraud_card_not_present", "source": "complaint"},
+    {"complaint_id": "C-12", "kind": "dispute", "customer_id": "CUS-0002", "transaction_ids": ["TX-0201", "TX-0202"], "reason_code": "duplicate_charge", "source": "complaint"},
+    {"complaint_id": "C-13", "kind": "fx_table", "source": "complaint"},
+    {"complaint_id": "C-14", "kind": "reason_codes", "source": "complaint"},
+    {"complaint_id": "C-18", "kind": "memory", "customer_id": "CUS-0004", "transaction_id": "TX-0401", "source": "complaint"}
+  ]
+}

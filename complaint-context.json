@@ -1,0 +1,182 @@
+{
+  "provenance": "Read-only app.db.table_dump from paypilot-stand-shared-db-stand-1; 2026-10-15; unrelated transactions omitted",
+  "seed_version": "1.0.0",
+  "customers": [
+    {
+      "id": "CUS-0002",
+      "name": "Borys Tkachenko",
+      "email": "b.tkachenko@example.com",
+      "tier": "tier2",
+      "compliance_hold": 0,
+      "fx_allowance_used_eur": 800.0
+    },
+    {
+      "id": "CUS-0004",
+      "name": "Danylo Kovalenko",
+      "email": "d.kovalenko@example.com",
+      "tier": "tier1",
+      "compliance_hold": 0,
+      "fx_allowance_used_eur": 0.0
+    },
+    {
+      "id": "CUS-0009",
+      "name": "Iryna Shevchuk",
+      "email": "iryna.shevchuk@example.com",
+      "tier": "tier1",
+      "compliance_hold": 0,
+      "fx_allowance_used_eur": 0.0
+    },
+    {
+      "id": "CUS-0010",
+      "name": "Jonas Weber",
+      "email": "jonas.weber@example.com",
+      "tier": "tier3",
+      "compliance_hold": 0,
+      "fx_allowance_used_eur": 15000.0
+    }
+  ],
+  "accounts": [
+    {
+      "id": "ACC-1002",
+      "customer_id": "CUS-0002",
+      "currency": "EUR",
+      "balance": 8900.0
+    },
+    {
+      "id": "ACC-1003",
+      "customer_id": "CUS-0002",
+      "currency": "USD",
+      "balance": 5200.75
+    },
+    {
+      "id": "ACC-1005",
+      "customer_id": "CUS-0004",
+      "currency": "EUR",
+      "balance": 1310.2
+    },
+    {
+      "id": "ACC-1010",
+      "customer_id": "CUS-0009",
+      "currency": "EUR",
+      "balance": 1770.0
+    },
+    {
+      "id": "ACC-1011",
+      "customer_id": "CUS-0010",
+      "currency": "GBP",
+      "balance": 61200.0
+    }
+  ],
+  "transactions": [
+    {
+      "id": "TX-0201",
+      "account_id": "ACC-1002",
+      "date": "2026-09-08",
+      "amount": 89.99,
+      "currency": "EUR",
+      "merchant": "CloudServe Subscription",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-0202",
+      "account_id": "ACC-1003",
+      "date": "2026-09-08",
+      "amount": 89.99,
+      "currency": "USD",
+      "merchant": "CloudServe Subscription",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-0203",
+      "account_id": "ACC-1002",
+      "date": "2026-09-12",
+      "amount": 450.0,
+      "currency": "EUR",
+      "merchant": "FlightHub Booking",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-0204",
+      "account_id": "ACC-1003",
+      "date": "2026-09-12",
+      "amount": 450.0,
+      "currency": "USD",
+      "merchant": "FlightHub Booking",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-0401",
+      "account_id": "ACC-1005",
+      "date": "2026-07-20",
+      "amount": 240.0,
+      "currency": "EUR",
+      "merchant": "TechMart Online",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-0402",
+      "account_id": "ACC-1005",
+      "date": "2026-07-14",
+      "amount": 240.0,
+      "currency": "EUR",
+      "merchant": "TechMart Online",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-0403",
+      "account_id": "ACC-1005",
+      "date": "2026-09-01",
+      "amount": 35.5,
+      "currency": "EUR",
+      "merchant": "CityParking",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-0902",
+      "account_id": "ACC-1010",
+      "date": "2026-09-12",
+      "amount": 62.3,
+      "currency": "EUR",
+      "merchant": "PharmaPlus",
+      "direction": "out",
+      "transfer_type": "card",
+      "status": "settled"
+    },
+    {
+      "id": "TX-1001",
+      "account_id": "ACC-1011",
+      "date": "2026-09-15",
+      "amount": 4200.0,
+      "currency": "GBP",
+      "merchant": "Payroll batch",
+      "direction": "out",
+      "transfer_type": "sepa",
+      "status": "settled"
+    },
+    {
+      "id": "TX-1002",
+      "account_id": "ACC-1011",
+      "date": "2026-09-02",
+      "amount": 26000.0,
+      "currency": "GBP",
+      "merchant": "Supplier invoice 2214",
+      "direction": "out",
+      "transfer_type": "swift",
+      "status": "settled"
+    }
+  ]
+}
