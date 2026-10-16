@@ -43,6 +43,10 @@ def golden_cases():
         meta = case["additional_metadata"]
         cid = case["id"]
         meta["added_in"] = "l03" if cid in LEGACY_IDS else "hw2"
+        if cid.split("-S")[0] in {f"FX-{i:03d}" for i in range(6, 12)} or cid.startswith(("FX2-", "DIS2-")):
+            meta["source"] = "edge"
+        if meta["oracle"] == "human":
+            meta["gate"] = "release"
         # A bounded response contract makes an exact label the cheapest reliable check.
         if cid.startswith("DIS2-"):
             meta["assertion"] = "equals"

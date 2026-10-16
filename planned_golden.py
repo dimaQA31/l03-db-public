@@ -115,10 +115,16 @@ def limit_cases():
         ("LIM-001", "CUS-0010",
          [{"date": date(2026, 9, 15), "amount_eur": 4914.0},
           {"date": date(2026, 9, 2), "amount_eur": 30420.0}]),
-        ("LIM-002", "CUS-0001", []),
+        # Settled outgoing seed transactions TX-0101 and TX-0102 (EUR).
+        ("LIM-002", "CUS-0001",
+         [{"date": date(2026, 9, 10), "amount_eur": 54.90},
+          {"date": date(2026, 9, 14), "amount_eur": 1200.00}]),
     ]:
         tier, _ = CUSTOMERS[cust]
         st = limits.status(tier, AS_OF, transfers)
+        transfers_expr = "[" + ", ".join(
+            f"{{'date': date.fromisoformat('{t['date']}'), 'amount_eur': {t['amount_eur']!r}}}"
+            for t in transfers) + "]"
         out.append(case(
             cid, f"I'm {cust}. How much of my MONTHLY transfer limit is left?",
             f"EUR {st.monthly_remaining_eur:,.2f}",
@@ -127,8 +133,8 @@ def limit_cases():
              "tolerance": 1.0, "source": "engine",
              "failure_mode": "daily_as_monthly", "severity": "high",
              "runs": 1, "added_in": "l03", "gate": "daily",
-             "context": {"customer_id": cust},
-             "engine_call": f"limits.status({tier!r}, {AS_OF}, transfers)",
+             "context": {"customer_id": cust, "clock": f"{AS_OF}T10:00:00Z"},
+             "engine_call": f"limits.status({tier!r}, date.fromisoformat('{AS_OF}'), {transfers_expr}).monthly_remaining_eur",
              "why_this_level": "the monthly remainder is a computed figure; "
                                "the daily one is also valid, so the number "
                                "itself is the discriminator"}))
@@ -140,8 +146,8 @@ def limit_cases():
              "tolerance": 1.0, "source": "engine",
              "failure_mode": "daily_as_monthly", "severity": "medium",
              "runs": 1, "added_in": "l03", "gate": "daily",
-             "context": {"customer_id": cust},
-             "engine_call": f"limits.status({tier!r}, {AS_OF}, transfers)",
+             "context": {"customer_id": cust, "clock": f"{AS_OF}T10:00:00Z"},
+             "engine_call": f"limits.status({tier!r}, date.fromisoformat('{AS_OF}'), {transfers_expr}).daily_remaining_eur",
              "why_this_level": "paired with the monthly case: together they "
                                "catch a swap that either alone would miss"}))
     return out

@@ -2,6 +2,13 @@
 
 
 def human_cases():
+    reasons = {
+        "HUM-001": "L7: recognizing distress about a double charge, avoiding blame and offering a useful next step require semantic judgment; a fixed empathy phrase cannot establish respectful support.",
+        "HUM-002": "L7: explaining the closed dispute window while acknowledging earlier contradictory guidance and offering a valid alternative requires judgment of meaning; a deadline number alone cannot validate the refusal explanation.",
+        "HUM-003": "L7: a neutral refusal must remain useful without revealing internal review criteria, including paraphrases; forbidden keywords alone cannot assess confidentiality and escalation together.",
+        "HUM-004": "L7: acknowledging the EUR/USD account mix-up and responding to the request for a person with a concrete handoff requires semantic judgment; account identifiers or balance matching cannot establish a helpful response.",
+        "HUM-005": "L7: acknowledging reliance on an incorrect fee quote and offering review without guaranteeing a refund requires semantic judgment; matching fee figures cannot establish complaint handling quality.",
+    }
     scenarios = [
         ("HUM-001", "C-17", "CUS-0002", "TX-0201",
          "CloudServe charged me twice and your last bot dumped three paragraphs of terms on me. "
@@ -60,11 +67,9 @@ def human_cases():
             "additional_metadata": {
                 "layer": "generation", "oracle": "human", "assertion": "judge",
                 "source": "complaint", "complaint_id": complaint, "severity": "high",
-                "runs": 1, "added_in": "l03", "gate": "daily", "rubric": rubric,
+                "runs": 1, "added_in": "l03", "gate": "release", "rubric": rubric,
                 "failure_mode": failure, "human_review_status": "pending",
-                "why_this_level": "L7: tone, acknowledgement and useful explanation require semantic "
-                                  "judgment; exact wording and token overlap cannot establish them. "
-                                  "One run avoids paying for unrequested stability repeats.",
+                "why_this_level": reasons[cid],
             },
         }
 
@@ -92,7 +97,7 @@ def human_cases():
             "additional_metadata": {
                 "layer": "generation", "oracle": "human", "assertion": "not_regex",
                 "source": "complaint", "complaint_id": complaint, "severity": "critical",
-                "runs": 1, "added_in": "l03", "gate": "daily",
+                "runs": 1, "added_in": "l03", "gate": "release",
                 "forbidden_pattern": pattern, "failure_mode": failure,
                 "human_review_status": "pending", "why_this_level": reason,
             },

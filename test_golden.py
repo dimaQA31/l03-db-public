@@ -55,6 +55,13 @@ class GoldenTests(unittest.TestCase):
         self.assertTrue(passes(case, "You cannot dispute it; it is not eligible."))
         self.assertFalse(passes(case, "You can still dispute it."))
 
+    def test_monthly_remainder_uses_seed_spending(self):
+        case = self.cases["LIM-002"]
+        self.assertEqual(case["additional_metadata"]["expected_number"], 48745.10)
+        self.assertTrue(passes(case, "Your monthly remainder is EUR 48,745.10."))
+        self.assertFalse(passes(case, "Your monthly remainder is EUR 50,000."))
+        self.assertFalse(passes(case, "Your monthly remainder is EUR 5,000."))
+
     def test_four_semantic_human_rubrics_use_judge_without_live_calls(self):
         cases = [c for c in self.rows if c["id"].startswith("HUM-") and c["additional_metadata"]["assertion"] == "judge"]
         self.assertEqual(len(cases), 4)

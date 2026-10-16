@@ -1,11 +1,11 @@
 # Рівні перевірок golden
 
-Набір: 40 кейсів; `set_hash: 350f461661a7`.
+Набір: 40 кейсів; `set_hash: c52af40d18ab`.
 37 кейсів позначено `added_in: hw2`; серед них 5 з `oracle: human`.
 
 Кожен рядок відповідає одному кейсу. `check_level` і `why_this_level` також збережені в JSONL. Рівні 5/6 не додано штучно: токенна схожість не доводить якість пояснення, а повторні прогони не замінюють правильну перевірку.
 
-Human-оракули: CMP-C-18 (факт користувача) і HUM-001…004 (семантичні рубрики). Для чотирьох рубрик використовується L7 `judge`; ручне оцінювання ще не виконане (`human_review_status: pending`).
+Human-оракули: CMP-C-18 (факт користувача) і HUM-001…004 (семантичні рубрики). Усі п’ять human-кейсів мають `gate: release`. Для чотирьох рубрик використовується L7 `judge`; ручне оцінювання ще не виконане (`human_review_status: pending`).
 
 | Кейс | Oracle | Assertion | Рівень | Чому достатньо цього рівня |
 |---|---|---|---|---|
@@ -45,7 +45,7 @@ Human-оракули: CMP-C-18 (факт користувача) і HUM-001…00
 | CMP-C-13-tier3 | engine | regex | 3 | Row-bound regex prevents a correct number under the wrong tier from passing. |
 | CMP-C-14 | engine | regex | 3 | All five code literals AND the engine window are required in one answer. |
 | CMP-C-18 | human | numeric | 2 | Recall the user-supplied amount across turns; amount also verified in DB, no calculation. |
-| HUM-001 | human | judge | 7 | L7: tone, acknowledgement and useful explanation require semantic judgment; exact wording and token overlap cannot establish them. One run avoids paying for unrequested stability repeats. |
-| HUM-002 | human | judge | 7 | L7: tone, acknowledgement and useful explanation require semantic judgment; exact wording and token overlap cannot establish them. One run avoids paying for unrequested stability repeats. |
-| HUM-003 | human | judge | 7 | L7: tone, acknowledgement and useful explanation require semantic judgment; exact wording and token overlap cannot establish them. One run avoids paying for unrequested stability repeats. |
-| HUM-004 | human | judge | 7 | L7: tone, acknowledgement and useful explanation require semantic judgment; exact wording and token overlap cannot establish them. One run avoids paying for unrequested stability repeats. |
+| HUM-001 | human | judge | 7 | L7: recognizing distress about a double charge, avoiding blame and offering a useful next step require semantic judgment; a fixed empathy phrase cannot establish respectful support. |
+| HUM-002 | human | judge | 7 | L7: explaining the closed dispute window while acknowledging earlier contradictory guidance and offering a valid alternative requires judgment of meaning; a deadline number alone cannot validate the refusal explanation. |
+| HUM-003 | human | judge | 7 | L7: a neutral refusal must remain useful without revealing internal review criteria, including paraphrases; forbidden keywords alone cannot assess confidentiality and escalation together. |
+| HUM-004 | human | judge | 7 | L7: acknowledging the EUR/USD account mix-up and responding to the request for a person with a concrete handoff requires semantic judgment; account identifiers or balance matching cannot establish a helpful response. |

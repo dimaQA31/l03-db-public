@@ -1,0 +1,1173 @@
+{
+  "source": "/stand/traces/traces.jsonl in paypilot-stand-shared-db-stand-1; only llm.call IDs, model and usage retained",
+  "report": "reports/clean.json",
+  "report_sha256": "135b0839c69757fda24dad13d61989b6de608afeb0e108e1c5bfaf586aa8aadd",
+  "set_hash": "350f461661a7",
+  "selection": {
+    "started_at_min": 1792092901.955487,
+    "started_at_max": 1792093123.855487,
+    "method": "report ran_at minus elapsed through ran_at, chronological sessions matched to report case order; final-turn tokens and tool_calls checked for all 40 cases"
+  },
+  "pricing": {
+    "model": "claude-haiku-5-5",
+    "input_usd_per_million": 0.1,
+    "output_usd_per_million": 0.5,
+    "verified_on": "2026-10-16",
+    "source": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  "totals": {
+    "cases": 40,
+    "requests": 43,
+    "llm_calls": 107,
+    "input_tokens": 318444,
+    "output_tokens": 23183,
+    "cost_usd": 0.0434359,
+    "judge_calls": 0,
+    "max_input_tokens_per_call": 5196
+  },
+  "cases": [
+    {
+      "case_id": "FX-004",
+      "requests": [
+        {
+          "request_id": "9d9c390f90ac4e33",
+          "started_at": 1792092902.0030038,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "c022b150dbff481f",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2623,
+              "output_tokens": 154
+            },
+            {
+              "span_id": "f21e0bfde62d453a",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3100,
+              "output_tokens": 442
+            },
+            {
+              "span_id": "9ea11b61be714cc1",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3937,
+              "output_tokens": 403
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-006",
+      "requests": [
+        {
+          "request_id": "e3c5ac6e63424160",
+          "started_at": 1792092909.0713856,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "d8ae111b23254a3a",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2623,
+              "output_tokens": 144
+            },
+            {
+              "span_id": "ab37aa080cde4ebf",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2774,
+              "output_tokens": 131
+            },
+            {
+              "span_id": "c63ad98c99aa44a4",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3054,
+              "output_tokens": 297
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-007",
+      "requests": [
+        {
+          "request_id": "06fc759723ed414a",
+          "started_at": 1792092913.5818522,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "dc6642feb9e7470a",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2623,
+              "output_tokens": 132
+            },
+            {
+              "span_id": "aa1f559b65e44874",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2774,
+              "output_tokens": 131
+            },
+            {
+              "span_id": "84ed606e34614f88",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3055,
+              "output_tokens": 459
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-008",
+      "requests": [
+        {
+          "request_id": "6245cc71282546c1",
+          "started_at": 1792092919.012813,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "4a52c0582aea4808",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2622,
+              "output_tokens": 121
+            },
+            {
+              "span_id": "544a79899ab84f22",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2767,
+              "output_tokens": 130
+            },
+            {
+              "span_id": "0f69383a5fc840ce",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3042,
+              "output_tokens": 253
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-009",
+      "requests": [
+        {
+          "request_id": "55296f10c5454135",
+          "started_at": 1792092923.3425443,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "a2b47a2e4f6d4ea5",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2622,
+              "output_tokens": 165
+            },
+            {
+              "span_id": "0dabe211af4b4afb",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2767,
+              "output_tokens": 130
+            },
+            {
+              "span_id": "011a03bf0630487d",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3043,
+              "output_tokens": 439
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-010",
+      "requests": [
+        {
+          "request_id": "2f2b0611298a453c",
+          "started_at": 1792092928.813739,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "7099f447d15942e1",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2622,
+              "output_tokens": 161
+            },
+            {
+              "span_id": "146ea5e79ce64268",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2843,
+              "output_tokens": 130
+            },
+            {
+              "span_id": "20761fe68edb4131",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3119,
+              "output_tokens": 298
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-011",
+      "requests": [
+        {
+          "request_id": "1a5bbed690064d6d",
+          "started_at": 1792092934.681274,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "da4f0d2ed2514d97",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2622,
+              "output_tokens": 158
+            },
+            {
+              "span_id": "403eb0aa63c14d1b",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2843,
+              "output_tokens": 130
+            },
+            {
+              "span_id": "7d4a042a532e4c0e",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3120,
+              "output_tokens": 461
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-006-S",
+      "requests": [
+        {
+          "request_id": "bba54c61a1574178",
+          "started_at": 1792092940.5224147,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "257d00cead1044bc",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2637,
+              "output_tokens": 169
+            },
+            {
+              "span_id": "2a0d8e11e806431f",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2788,
+              "output_tokens": 131
+            },
+            {
+              "span_id": "8d9b856880af48c0",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3068,
+              "output_tokens": 108
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX-007-S",
+      "requests": [
+        {
+          "request_id": "5832ac5e4dc04aa0",
+          "started_at": 1792092945.203911,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "cbc4d3bb6b5e4ffc",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2637,
+              "output_tokens": 172
+            },
+            {
+              "span_id": "6459fd71e4f449ea",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2788,
+              "output_tokens": 180
+            },
+            {
+              "span_id": "88eceb5c66bf4e82",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3069,
+              "output_tokens": 312
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX2-004-above-A",
+      "requests": [
+        {
+          "request_id": "48fbd477439d4226",
+          "started_at": 1792092951.6577647,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "9633324b3afc4e06",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2662,
+              "output_tokens": 252
+            },
+            {
+              "span_id": "b85397b561054d6f",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2813,
+              "output_tokens": 134
+            },
+            {
+              "span_id": "79a805965ca6434d",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3098,
+              "output_tokens": 654
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "FX2-004-above-S",
+      "requests": [
+        {
+          "request_id": "648431dad1684492",
+          "started_at": 1792092958.2384646,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "c7d1f04bc06f48fc",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2679,
+              "output_tokens": 302
+            },
+            {
+              "span_id": "b0ae647000fa41c2",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2964,
+              "output_tokens": 388
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "LIM-001",
+      "requests": [
+        {
+          "request_id": "391713e16ca14d29",
+          "started_at": 1792092963.1234515,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "d68ea2074d0640a0",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2617,
+              "output_tokens": 192
+            },
+            {
+              "span_id": "df5045e78f954866",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2764,
+              "output_tokens": 56
+            },
+            {
+              "span_id": "11d65b1d66064f6a",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2946,
+              "output_tokens": 218
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "LIM-001-D",
+      "requests": [
+        {
+          "request_id": "bfc8fb5312da409a",
+          "started_at": 1792092967.5472357,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "c1e12790604f4114",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2613,
+              "output_tokens": 259
+            },
+            {
+              "span_id": "f3efa895da064088",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2986,
+              "output_tokens": 134
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "LIM-002",
+      "requests": [
+        {
+          "request_id": "955ab1d2f3a5405f",
+          "started_at": 1792092970.4915974,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "634712206ad641d9",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2617,
+              "output_tokens": 144
+            },
+            {
+              "span_id": "c747af8ea0264f5e",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2762,
+              "output_tokens": 56
+            },
+            {
+              "span_id": "403c120040714f51",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2938,
+              "output_tokens": 117
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "LIM-002-D",
+      "requests": [
+        {
+          "request_id": "76ca95088bc34666",
+          "started_at": 1792092974.435877,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "60658c1c36bc47ec",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2613,
+              "output_tokens": 131
+            },
+            {
+              "span_id": "da95d4d0ff894ef4",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2758,
+              "output_tokens": 56
+            },
+            {
+              "span_id": "ff8f569f5a4d4bc9",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2934,
+              "output_tokens": 132
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DIS2-001-inside",
+      "requests": [
+        {
+          "request_id": "6dade83bcfcf42f5",
+          "started_at": 1792092978.0527155,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "1f61b8ff340b4e0b",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2678,
+              "output_tokens": 203
+            },
+            {
+              "span_id": "ed57563f510448e3",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3362,
+              "output_tokens": 135
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DIS2-001-at",
+      "requests": [
+        {
+          "request_id": "833a542726ee4b81",
+          "started_at": 1792092980.727947,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "a0270bf93f8a4661",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2678,
+              "output_tokens": 220
+            },
+            {
+              "span_id": "e8c7295575864f0d",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3362,
+              "output_tokens": 319
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DIS2-001-outside",
+      "requests": [
+        {
+          "request_id": "23ed8049187f4bd0",
+          "started_at": 1792092984.4704,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "9c8d0ab9ab324569",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2678,
+              "output_tokens": 205
+            },
+            {
+              "span_id": "6defcb82bb1842da",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3366,
+              "output_tokens": 258
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "DIS-002-N",
+      "requests": [
+        {
+          "request_id": "e4a47933df6242d8",
+          "started_at": 1792092987.7599506,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "8715cdafa68648e7",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2629,
+              "output_tokens": 180
+            },
+            {
+              "span_id": "14f94847074645aa",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2860,
+              "output_tokens": 276
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-03-TX-0402-WINDOW",
+      "requests": [
+        {
+          "request_id": "7077b53e8b434ca4",
+          "started_at": 1792092991.6865819,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "909b6458249b4c44",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2658,
+              "output_tokens": 311
+            },
+            {
+              "span_id": "4bd859a333764522",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3577,
+              "output_tokens": 398
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-03-TX-0402-ELIGIBLE",
+      "requests": [
+        {
+          "request_id": "d7edbc7e383545fb",
+          "started_at": 1792092995.8259206,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "7901e740e74d40f7",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2666,
+              "output_tokens": 164
+            },
+            {
+              "span_id": "8476a470c608424b",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2897,
+              "output_tokens": 354
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-03-TX-0401-WINDOW",
+      "requests": [
+        {
+          "request_id": "af6585f82b944a70",
+          "started_at": 1792092999.590168,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "e4c2bd5a84cc4ccf",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2658,
+              "output_tokens": 174
+            },
+            {
+              "span_id": "04bd7e48db8b4b7c",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3291,
+              "output_tokens": 427
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-03-TX-0401-ELIGIBLE",
+      "requests": [
+        {
+          "request_id": "c2573e9d345f4641",
+          "started_at": 1792093004.0578122,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "859a87fe64ea46cc",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2666,
+              "output_tokens": 92
+            },
+            {
+              "span_id": "91e1acf009984828",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2880,
+              "output_tokens": 249
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-09",
+      "requests": [
+        {
+          "request_id": "d4e5533c1ded4413",
+          "started_at": 1792093007.067175,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "daf2d4a47e924781",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2634,
+              "output_tokens": 55
+            },
+            {
+              "span_id": "711b4d6da4f546c7",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2781,
+              "output_tokens": 56
+            },
+            {
+              "span_id": "78ffe0d335154644",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2963,
+              "output_tokens": 201
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-09-TOOL",
+      "requests": [
+        {
+          "request_id": "dd6e8e521fdf4d94",
+          "started_at": 1792093010.4736924,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "74c06c268416444a",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2634,
+              "output_tokens": 56
+            },
+            {
+              "span_id": "4180ed59f7ea47bb",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2781,
+              "output_tokens": 56
+            },
+            {
+              "span_id": "00e952d2050c4227",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2963,
+              "output_tokens": 212
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-11-TX-0902-WINDOW",
+      "requests": [
+        {
+          "request_id": "9aa4328254444c16",
+          "started_at": 1792093014.1168203,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "5003ce644e0740fd",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2659,
+              "output_tokens": 308
+            },
+            {
+              "span_id": "b071d6138f464122",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3574,
+              "output_tokens": 183
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-11-TX-0902-ELIGIBLE",
+      "requests": [
+        {
+          "request_id": "e285f2574a5c4adf",
+          "started_at": 1792093017.7606387,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "f72ce2f53146474b",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2667,
+              "output_tokens": 161
+            },
+            {
+              "span_id": "3b9055d34fb348ba",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2885,
+              "output_tokens": 159
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-12-TX-0201-WINDOW",
+      "requests": [
+        {
+          "request_id": "1e3f5127df2048d4",
+          "started_at": 1792093020.1660464,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "d9d005b62f994793",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2661,
+              "output_tokens": 212
+            },
+            {
+              "span_id": "4930a2f745674525",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3294,
+              "output_tokens": 344
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-12-TX-0201-ELIGIBLE",
+      "requests": [
+        {
+          "request_id": "6f356f22e3244d52",
+          "started_at": 1792093060.236768,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "50b680f40ef7405f",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2669,
+              "output_tokens": 145
+            },
+            {
+              "span_id": "0fe1fdc6ac5d4e19",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2883,
+              "output_tokens": 178
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-12-TX-0202-WINDOW",
+      "requests": [
+        {
+          "request_id": "a296c12c18eb4b4c",
+          "started_at": 1792093064.152769,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "3c54176c9a7341c4",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2660,
+              "output_tokens": 314
+            },
+            {
+              "span_id": "6f4c35bb8dab4143",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3562,
+              "output_tokens": 144
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-12-TX-0202-ELIGIBLE",
+      "requests": [
+        {
+          "request_id": "90b0be125a2c475b",
+          "started_at": 1792093067.3782656,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "ff736a68f7d445bc",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2668,
+              "output_tokens": 92
+            },
+            {
+              "span_id": "0ea83cf97dde4e95",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2882,
+              "output_tokens": 161
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-13-tier1",
+      "requests": [
+        {
+          "request_id": "5469f918b0884631",
+          "started_at": 1792093069.8019297,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "f091c5a1b59f4cb2",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2619,
+              "output_tokens": 124
+            },
+            {
+              "span_id": "2ed189c7606e415d",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3485,
+              "output_tokens": 263
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-13-tier2",
+      "requests": [
+        {
+          "request_id": "8e50e5c2dc1c4caa",
+          "started_at": 1792093072.7861323,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "1bad90ed19764316",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2619,
+              "output_tokens": 127
+            },
+            {
+              "span_id": "277a1e06456847fe",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3516,
+              "output_tokens": 204
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-13-tier3",
+      "requests": [
+        {
+          "request_id": "ca24513645304b5b",
+          "started_at": 1792093076.1711414,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "c5cc7b0581c94a89",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2619,
+              "output_tokens": 123
+            },
+            {
+              "span_id": "1d9f28ed49904c9f",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3485,
+              "output_tokens": 240
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-14",
+      "requests": [
+        {
+          "request_id": "d9f0a2732e6242c5",
+          "started_at": 1792093078.8764822,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "8292f9e8b69943b7",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2619,
+              "output_tokens": 179
+            },
+            {
+              "span_id": "80f8a4dabab94bc8",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3252,
+              "output_tokens": 162
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "CMP-C-18",
+      "requests": [
+        {
+          "request_id": "e71f2e23718c4204",
+          "started_at": 1792093082.8012183,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "b0e59205693a4c55",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2619,
+              "output_tokens": 93
+            },
+            {
+              "span_id": "7d1168db28bc4bde",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2772,
+              "output_tokens": 170
+            },
+            {
+              "span_id": "bf698bbf0d6f4fb3",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3137,
+              "output_tokens": 633
+            }
+          ]
+        },
+        {
+          "request_id": "0ab1cf9af3874b8d",
+          "started_at": 1792093088.7443395,
+          "dialog_step": 2,
+          "calls": [
+            {
+              "span_id": "02de08442bd14bf2",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3536,
+              "output_tokens": 59
+            },
+            {
+              "span_id": "70d9d07b2f4e477f",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 4155,
+              "output_tokens": 279
+            }
+          ]
+        },
+        {
+          "request_id": "61d1f795c51f4ad3",
+          "started_at": 1792093091.4557915,
+          "dialog_step": 3,
+          "calls": [
+            {
+              "span_id": "818635b3cd514703",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 4367,
+              "output_tokens": 102
+            },
+            {
+              "span_id": "c927927e215b4ffc",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 4987,
+              "output_tokens": 184
+            }
+          ]
+        },
+        {
+          "request_id": "81425ce3cab44f70",
+          "started_at": 1792093094.156656,
+          "dialog_step": 4,
+          "calls": [
+            {
+              "span_id": "3bd9f76e4f8a4a4f",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 5196,
+              "output_tokens": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "HUM-001",
+      "requests": [
+        {
+          "request_id": "dabdd54d540b4721",
+          "started_at": 1792093095.0377405,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "72917be155844420",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2642,
+              "output_tokens": 116
+            },
+            {
+              "span_id": "d1ec768c7fe94f2e",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2895,
+              "output_tokens": 229
+            },
+            {
+              "span_id": "2cb72c2c1d304ee3",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3500,
+              "output_tokens": 525
+            },
+            {
+              "span_id": "e8713d275afb4790",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 4050,
+              "output_tokens": 557
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "HUM-002",
+      "requests": [
+        {
+          "request_id": "c7d70c532631496e",
+          "started_at": 1792093104.262356,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "3631e5d84fe64507",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2658,
+              "output_tokens": 186
+            },
+            {
+              "span_id": "e3a55e1e10ce44ba",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2851,
+              "output_tokens": 167
+            },
+            {
+              "span_id": "8c660a12bb3c4ee5",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3482,
+              "output_tokens": 661
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "HUM-003",
+      "requests": [
+        {
+          "request_id": "395d5e6348074392",
+          "started_at": 1792093110.8779254,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "e418a511b9344e96",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2644,
+              "output_tokens": 98
+            },
+            {
+              "span_id": "926bbbd90d5546f2",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2793,
+              "output_tokens": 91
+            },
+            {
+              "span_id": "7398f2b327894b53",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3021,
+              "output_tokens": 371
+            },
+            {
+              "span_id": "880358fb79a24c61",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3254,
+              "output_tokens": 422
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "HUM-004",
+      "requests": [
+        {
+          "request_id": "58c1b37786ec421e",
+          "started_at": 1792093118.345089,
+          "dialog_step": 1,
+          "calls": [
+            {
+              "span_id": "eebb9fdbfdfa4bda",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2654,
+              "output_tokens": 148
+            },
+            {
+              "span_id": "9d6041cac22b4fcb",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 2875,
+              "output_tokens": 220
+            },
+            {
+              "span_id": "c134f8c23bcd4949",
+              "model": "claude-haiku-5-5",
+              "input_tokens": 3070,
+              "output_tokens": 260
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
