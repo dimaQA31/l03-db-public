@@ -1,0 +1,2668 @@
+{
+  "prompt_version": "base.v1",
+  "set_hash": "c52af40d18ab",
+  "profile": "clean",
+  "judge_model": "not-used",
+  "rubric_version": "rubric.v1",
+  "elapsed": 201.4,
+  "set": "golden",
+  "gate": "all",
+  "ran_at": "2026-10-19T08:34:14.796309+00:00",
+  "passed": 36,
+  "total": 36,
+  "skipped": 4,
+  "by_layer": {
+    "generation": {
+      "passed": 29,
+      "total": 29
+    },
+    "action": {
+      "passed": 6,
+      "total": 6
+    },
+    "memory": {
+      "passed": 1,
+      "total": 1
+    }
+  },
+  "coverage": {
+    "cases": 40,
+    "layers": {
+      "action": 6,
+      "generation": 33,
+      "memory": 1
+    },
+    "oracles": {
+      "engine": 35,
+      "human": 5
+    },
+    "sources": {
+      "complaint": 21,
+      "edge": 13,
+      "engine": 6
+    },
+    "severities": {
+      "critical": 1,
+      "high": 37,
+      "medium": 2
+    },
+    "ladder_levels": [
+      1,
+      2,
+      3,
+      4,
+      7
+    ],
+    "gates": {
+      "daily": 35,
+      "release": 5
+    },
+    "human_oracle_pct": 12.5,
+    "severity_filled_pct": 100.0
+  },
+  "cases": [
+    {
+      "skipped": false,
+      "id": "FX-004",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 2154.347826"
+      },
+      "answers": [
+        "Here is the FX quote for converting 2,000 EUR to USD on account ACC-1008 (tier 2):\n\n- **Mid rate:** 1 EUR = 1.086957 USD\n- **Gross amount:** 2,000 EUR × 1.086957 = 2,173.91 USD\n- **Spread:** 0.9%, which is 19.57 USD\n- **Free allowance:** the quote lists a total allowance of 1,000 EUR, with 0 EUR used before this conversion. The quote reports `allowance_applied: false`, so no allowance was applied "
+      ],
+      "latency_ms": 6511,
+      "tokens": 9272,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0007",
+              "name": "Greta Lindqvist",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1008",
+                "customer_id": "CUS-0007",
+                "currency": "EUR",
+                "balance": 27600.0,
+                "tier": "tier2",
+                "holder": "Greta Lindqvist"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0007",
+            "amount": 2000,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 2000,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.9,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 0.0,
+            "allowance_applied": false,
+            "gross_amount": 2173.913043,
+            "spread_amount": 19.565217,
+            "final_amount": 2154.347826
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-006",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 1086.956522"
+      },
+      "answers": [
+        "Converting 1,000 EUR to USD gives you **1,086.96 USD**.\n\n- **Mid rate:** 1 EUR = 1.086957 USD\n- **Tier 2 spread:** 0.0%, so no spread amount is deducted\n- **Free allowance:** 1,000 EUR, applied in full (0 EUR used before this conversion), so the conversion is covered by the allowance\n- **Gross amount:** 1,086.956522 USD\n- **Final amount:** 1,086.96 USD (rounded to cents)"
+      ],
+      "latency_ms": 4399,
+      "tokens": 9015,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0007",
+              "name": "Greta Lindqvist",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1008",
+                "customer_id": "CUS-0007",
+                "currency": "EUR",
+                "balance": 27600.0,
+                "tier": "tier2",
+                "holder": "Greta Lindqvist"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0007",
+            "amount": 1000,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 1000,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.0,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 0.0,
+            "allowance_applied": true,
+            "gross_amount": 1086.956522,
+            "spread_amount": 0.0,
+            "final_amount": 1086.956522
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-007",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 1078.251087"
+      },
+      "answers": [
+        "Here is the quote for converting 1,001 EUR to USD on your tier2 account (CUS-0007):\n\n- **Mid rate:** 1 EUR = 1.086957 USD\n- **Gross amount:** 1,001 × 1.086957 = 1,088.04 USD\n- **Spread:** 0.9% of the gross amount = 9.79 USD\n- **Free allowance:** the quote lists a total of 1,000 EUR, with 0 EUR used before this conversion. The quote shows the allowance as not applied, so the spread is charged on th"
+      ],
+      "latency_ms": 6008,
+      "tokens": 9314,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0007",
+              "name": "Greta Lindqvist",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1008",
+                "customer_id": "CUS-0007",
+                "currency": "EUR",
+                "balance": 27600.0,
+                "tier": "tier2",
+                "holder": "Greta Lindqvist"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0007",
+            "amount": 1001,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 1001,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.9,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 0.0,
+            "allowance_applied": false,
+            "gross_amount": 1088.043478,
+            "spread_amount": 9.792391,
+            "final_amount": 1078.251087
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-008",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 413.043478"
+      },
+      "answers": [
+        "You would receive **413.04 USD** for 380 EUR.\n\n- **Mid rate:** 1 EUR = 1.086957 USD\n- **Tier 1 spread:** 0.0%, so no spread is deducted (0.00 EUR)\n- **Free allowance:** 500 EUR total, of which 120 EUR was already used before this conversion. The remaining 380 EUR of allowance covers this full amount, so it is applied.\n- **Final amount:** 380 × 1.086957 = 413.043478, shown as 413.04 USD\n\nYour EUR b"
+      ],
+      "latency_ms": 4785,
+      "tokens": 8998,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0001",
+              "name": "Alice Novak",
+              "tier": "tier1"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1001",
+                "customer_id": "CUS-0001",
+                "currency": "EUR",
+                "balance": 2450.3,
+                "tier": "tier1",
+                "holder": "Alice Novak"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0001",
+            "amount": 380,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 380,
+            "mid_rate": 1.086957,
+            "tier": "tier1",
+            "spread_pct": 0.0,
+            "allowance_total_eur": 500,
+            "allowance_used_before_eur": 120.0,
+            "allowance_applied": true,
+            "gross_amount": 413.043478,
+            "spread_amount": 0.0,
+            "final_amount": 413.043478
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-009",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 407.918478"
+      },
+      "answers": [
+        "Your final amount would be **USD 407.92**.\n\n- Amount: EUR 381.00\n- Mid rate: 1.086957 USD per EUR\n- Gross converted amount: USD 414.13\n- Tier 1 spread (1.5%): −USD 6.21\n- **Final amount: USD 407.92**\n\nYour free FX allowance is EUR 500 per period. EUR 120 is already used, leaving EUR 380. The quote did not apply the allowance to this conversion, so the spread was charged on the full amount. Because"
+      ],
+      "latency_ms": 9215,
+      "tokens": 9258,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0001",
+              "name": "Alice Novak",
+              "tier": "tier1"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1001",
+                "customer_id": "CUS-0001",
+                "currency": "EUR",
+                "balance": 2450.3,
+                "tier": "tier1",
+                "holder": "Alice Novak"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0001",
+            "amount": 381,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 381,
+            "mid_rate": 1.086957,
+            "tier": "tier1",
+            "spread_pct": 1.5,
+            "allowance_total_eur": 500,
+            "allowance_used_before_eur": 120.0,
+            "allowance_applied": false,
+            "gross_amount": 414.130435,
+            "spread_amount": 6.211957,
+            "final_amount": 407.918478
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-010",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 217.391304"
+      },
+      "answers": [
+        "Your conversion of **200 EUR to USD** would give you **217.39 USD**.\n\nHow the amount is calculated:\n\n- **Mid-market rate:** 1 EUR = 1.086957 USD\n- **Gross amount:** 200 × 1.086957 = 217.391304 USD\n- **Tier 2 spread:** 0.0%, so 0.00 USD deducted\n- **Free allowance:** EUR 1,000 total for your tier. You have used EUR 800 so far, leaving EUR 200. This conversion falls entirely within that remainder, s"
+      ],
+      "latency_ms": 5556,
+      "tokens": 9179,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0002",
+              "name": "Borys Tkachenko",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1002",
+                "customer_id": "CUS-0002",
+                "currency": "EUR",
+                "balance": 8900.0,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              },
+              {
+                "id": "ACC-1003",
+                "customer_id": "CUS-0002",
+                "currency": "USD",
+                "balance": 5200.75,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0002",
+            "amount": 200,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 200,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.0,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 800.0,
+            "allowance_applied": true,
+            "gross_amount": 217.391304,
+            "spread_amount": 0.0,
+            "final_amount": 217.391304
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-011",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 216.511957"
+      },
+      "answers": [
+        "Your final amount is **216.51 USD**.\n\n| Component | Value |\n|---|---|\n| Amount sent | 201.00 EUR |\n| Mid rate (EUR→USD) | 1.086957 |\n| Gross amount at mid rate | 218.48 USD |\n| Tier 2 spread (0.9%) | −1.97 USD |\n| **Final amount received** | **216.51 USD** |\n\nThe quote shows an FX free allowance of 1,000 EUR, of which 800 EUR was used before this conversion. The allowance was not applied to this q"
+      ],
+      "latency_ms": 5652,
+      "tokens": 9324,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0002",
+              "name": "Borys Tkachenko",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1002",
+                "customer_id": "CUS-0002",
+                "currency": "EUR",
+                "balance": 8900.0,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              },
+              {
+                "id": "ACC-1003",
+                "customer_id": "CUS-0002",
+                "currency": "USD",
+                "balance": 5200.75,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0002",
+            "amount": 201,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 201,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.9,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 800.0,
+            "allowance_applied": false,
+            "gross_amount": 218.478261,
+            "spread_amount": 1.966304,
+            "final_amount": 216.511957
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-006-S",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "0%"
+      ],
+      "latency_ms": 3018,
+      "tokens": 6151,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0007",
+              "name": "Greta Lindqvist",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1008",
+                "customer_id": "CUS-0007",
+                "currency": "EUR",
+                "balance": 27600.0,
+                "tier": "tier2",
+                "holder": "Greta Lindqvist"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0007",
+            "amount": 1000,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 1000,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.0,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 0.0,
+            "allowance_applied": true,
+            "gross_amount": 1086.956522,
+            "spread_amount": 0.0,
+            "final_amount": 1086.956522
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX-007-S",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "0.9%"
+      ],
+      "latency_ms": 4502,
+      "tokens": 9052,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0007",
+              "name": "Greta Lindqvist",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1008",
+                "customer_id": "CUS-0007",
+                "currency": "EUR",
+                "balance": 27600.0,
+                "tier": "tier2",
+                "holder": "Greta Lindqvist"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0007",
+            "amount": 1001,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 1001,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.9,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 0.0,
+            "allowance_applied": false,
+            "gross_amount": 1088.043478,
+            "spread_amount": 9.792391,
+            "final_amount": 1078.251087
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX2-004-above-A",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_grounded_numeric",
+        "detail": "quote_fx.final_amount = 1078.251087"
+      },
+      "answers": [
+        "For CUS-0007 (Greta Lindqvist, tier2), converting EUR 1,001.00 to USD gives a **final amount of USD 1,078.25**.\n\nThe quote breaks down as follows:\n\n- **Mid rate:** 1 EUR = 1.086957 USD\n- **Gross amount:** 1,001.00 × 1.086957 = USD 1,088.04\n- **FX spread:** 0.9% (tier2), which is USD 9.79 of the gross amount\n- **Final amount:** 1,088.04 − 9.79 = **USD 1,078.25**\n\nThe quote shows a free FX allowance"
+      ],
+      "latency_ms": 7328,
+      "tokens": 9765,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0007",
+              "name": "Greta Lindqvist",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1008",
+                "customer_id": "CUS-0007",
+                "currency": "EUR",
+                "balance": 27600.0,
+                "tier": "tier2",
+                "holder": "Greta Lindqvist"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0007",
+            "amount": 1001.0,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 1001.0,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.9,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 0.0,
+            "allowance_applied": false,
+            "gross_amount": 1088.043478,
+            "spread_amount": 9.792391,
+            "final_amount": 1078.251087
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "FX2-004-above-S",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "0.9%"
+      ],
+      "latency_ms": 3837,
+      "tokens": 6213,
+      "tool_calls": [
+        {
+          "name": "quote_fx",
+          "arguments": {
+            "customer_id": "CUS-0007",
+            "amount": 1001,
+            "from_currency": "EUR",
+            "to_currency": "USD"
+          },
+          "result": {
+            "from_currency": "EUR",
+            "to_currency": "USD",
+            "amount": 1001,
+            "mid_rate": 1.086957,
+            "tier": "tier2",
+            "spread_pct": 0.9,
+            "allowance_total_eur": 1000,
+            "allowance_used_before_eur": 0.0,
+            "allowance_applied": false,
+            "gross_amount": 1088.043478,
+            "spread_amount": 9.792391,
+            "final_amount": 1078.251087
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "LIM-001",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "Hello Jonas,\n\nYour monthly transfer limit remaining is **EUR 964,666.00**, out of a monthly limit of EUR 1,000,000.00. You have used EUR 35,334.00 so far this month. These figures are as of 15 September 2026, and limits are shown in EUR equivalent.\n\nIs there anything else I can help you with?"
+      ],
+      "latency_ms": 3852,
+      "tokens": 8637,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0010",
+              "name": "Jonas Weber",
+              "tier": "tier3"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1011",
+                "customer_id": "CUS-0010",
+                "currency": "GBP",
+                "balance": 61200.0,
+                "tier": "tier3",
+                "holder": "Jonas Weber"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_limits",
+          "arguments": {
+            "customer_id": "CUS-0010"
+          },
+          "result": {
+            "tier": "tier3",
+            "as_of": "2026-09-15",
+            "daily_limit_eur": 100000,
+            "daily_spent_eur": 4914.0,
+            "daily_remaining_eur": 95086.0,
+            "monthly_limit_eur": 1000000,
+            "monthly_spent_eur": 35334.0,
+            "monthly_remaining_eur": 964666.0
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "LIM-001-D",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "medium",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "Hello Jonas,\n\nYour remaining daily transfer limit is **EUR 95,086.00**, as of 15 September 2026.\n\n- Daily limit (tier 3): EUR 100,000.00\n- Spent today: EUR 4,914.00\n- Remaining today: EUR 95,086.00\n\nIs there anything else I can help you with?"
+      ],
+      "latency_ms": 3777,
+      "tokens": 8627,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0010",
+              "name": "Jonas Weber",
+              "tier": "tier3"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1011",
+                "customer_id": "CUS-0010",
+                "currency": "GBP",
+                "balance": 61200.0,
+                "tier": "tier3",
+                "holder": "Jonas Weber"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_limits",
+          "arguments": {
+            "customer_id": "CUS-0010"
+          },
+          "result": {
+            "tier": "tier3",
+            "as_of": "2026-09-15",
+            "daily_limit_eur": 100000,
+            "daily_spent_eur": 4914.0,
+            "daily_remaining_eur": 95086.0,
+            "monthly_limit_eur": 1000000,
+            "monthly_spent_eur": 35334.0,
+            "monthly_remaining_eur": 964666.0
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "LIM-002",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "Hello Alice. As of 2026-09-15, your monthly transfer limit on the tier1 plan is:\n\n- Monthly limit: EUR 50,000.00\n- Spent this month: EUR 1,254.90\n- **Remaining: EUR 48,745.10**\n\nYour daily limit is EUR 5,000.00, and none of it has been used today."
+      ],
+      "latency_ms": 3640,
+      "tokens": 8602,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0001",
+              "name": "Alice Novak",
+              "tier": "tier1"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1001",
+                "customer_id": "CUS-0001",
+                "currency": "EUR",
+                "balance": 2450.3,
+                "tier": "tier1",
+                "holder": "Alice Novak"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_limits",
+          "arguments": {
+            "customer_id": "CUS-0001"
+          },
+          "result": {
+            "tier": "tier1",
+            "as_of": "2026-09-15",
+            "daily_limit_eur": 5000,
+            "daily_spent_eur": 0,
+            "daily_remaining_eur": 5000,
+            "monthly_limit_eur": 50000,
+            "monthly_spent_eur": 1254.9,
+            "monthly_remaining_eur": 48745.1
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "LIM-002-D",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "medium",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "Hello Alice. Your remaining daily transfer limit as of today (2026-09-15) is **EUR 5,000.00**.\n\n- Daily limit (tier1): EUR 5,000.00\n- Spent today: EUR 0.00\n- Remaining today: EUR 5,000.00\n\nFor reference, your monthly limit is EUR 50,000.00, with EUR 1,254.90 used and EUR 48,745.10 remaining."
+      ],
+      "latency_ms": 3869,
+      "tokens": 8689,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0001",
+              "name": "Alice Novak",
+              "tier": "tier1"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1001",
+                "customer_id": "CUS-0001",
+                "currency": "EUR",
+                "balance": 2450.3,
+                "tier": "tier1",
+                "holder": "Alice Novak"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_limits",
+          "arguments": {
+            "customer_id": "CUS-0001"
+          },
+          "result": {
+            "tier": "tier1",
+            "as_of": "2026-09-15",
+            "daily_limit_eur": 5000,
+            "daily_spent_eur": 0,
+            "daily_remaining_eur": 5000,
+            "monthly_limit_eur": 50000,
+            "monthly_spent_eur": 1254.9,
+            "monthly_remaining_eur": 48745.1
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "DIS2-001-inside",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "equals",
+        "detail": ""
+      },
+      "answers": [
+        "ELIGIBLE"
+      ],
+      "latency_ms": 3562,
+      "tokens": 6496,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window time limit fraud_card_not_present reason code"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window time limit fraud_card_not_present reason code",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.6583,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "reason-codes.md#s6",
+                "doc": "reason-codes.md",
+                "score": 1.372,
+                "text": "Reason code guide\n## Choosing a code\nThe reason code must match what actually happened. A dispute filed under the\nwrong code is declined and must be refiled, which may push it past its window."
+              },
+              {
+                "id": "glossary.md#s4",
+                "doc": "glossary.md",
+                "score": 1.066,
+                "text": "Glossary\n## Reason code\nThe classification of why a transaction is disputed. The reason code determines\nthe chargeback window and the evidence required."
+              },
+              {
+                "id": "disputes-process.md#s6",
+                "doc": "disputes-process.md",
+                "score": 1.0607,
+                "text": "Dispute handling process\n## Withdrawing a dispute\nA customer may withdraw a dispute at any time before resolution. Withdrawal is\nfinal; the same transaction cannot be disputed again under the same reason code."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "DIS2-001-at",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "equals",
+        "detail": ""
+      },
+      "answers": [
+        "ELIGIBLE"
+      ],
+      "latency_ms": 6198,
+      "tokens": 10895,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window time limit fraud_card_not_present"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window time limit fraud_card_not_present",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 0.9045,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "disputes-process.md#s6",
+                "doc": "disputes-process.md",
+                "score": 0.7071,
+                "text": "Dispute handling process\n## Withdrawing a dispute\nA customer may withdraw a dispute at any time before resolution. Withdrawal is\nfinal; the same transaction cannot be disputed again under the same reason code."
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 0.6124,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "glossary.md#s7",
+                "doc": "glossary.md",
+                "score": 0.4714,
+                "text": "Glossary\n## Provisional credit\nA temporary refund applied while a dispute is reviewed; reversed if the dispute\nis declined."
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window closes day counting inclusive last day"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window closes day counting inclusive last day",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 0.9045,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "disputes-process.md#s6",
+                "doc": "disputes-process.md",
+                "score": 0.5303,
+                "text": "Dispute handling process\n## Withdrawing a dispute\nA customer may withdraw a dispute at any time before resolution. Withdrawal is\nfinal; the same transaction cannot be disputed again under the same reason code."
+              },
+              {
+                "id": "glossary.md#s7",
+                "doc": "glossary.md",
+                "score": 0.4714,
+                "text": "Glossary\n## Provisional credit\nA temporary refund applied while a dispute is reviewed; reversed if the dispute\nis declined."
+              },
+              {
+                "id": "disputes-process.md#s1",
+                "doc": "disputes-process.md",
+                "score": 0.4286,
+                "text": "Dispute handling process\n## Raising a dispute\nA dispute is raised against a single settled transaction. The customer supplies\nthe transaction reference and a reason code. The agent verifies eligibility\nbefore the case is opened; an ineligible request is refused with the failing\ncondition named, except where confidentiality rules apply."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "DIS2-001-outside",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "equals",
+        "detail": ""
+      },
+      "answers": [
+        "INELIGIBLE"
+      ],
+      "latency_ms": 3345,
+      "tokens": 6470,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window fraud_card_not_present time limit days from transaction"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window fraud_card_not_present time limit days from transaction",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.5076,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 1.2247,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "glossary.md#s3",
+                "doc": "glossary.md",
+                "score": 1.0206,
+                "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+              },
+              {
+                "id": "disputes-process.md#s6",
+                "doc": "disputes-process.md",
+                "score": 0.8839,
+                "text": "Dispute handling process\n## Withdrawing a dispute\nA customer may withdraw a dispute at any time before resolution. Withdrawal is\nfinal; the same transaction cannot be disputed again under the same reason code."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "DIS-002-N",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "critical",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 4,
+        "assertion": "not_regex",
+        "detail": ""
+      },
+      "answers": [
+        "I'm sorry, but I can't open a dispute for TX-0402 under the duplicate charge reason. The 60-day dispute window for that transaction closed on 12 September 2026. The transaction date was 14 July 2026, and today is 15 September 2026.\n\nThe next step would be to contact a human agent, who can review whether any exception applies. Would you like me to escalate this to them?"
+      ],
+      "latency_ms": 3186,
+      "tokens": 5912,
+      "tool_calls": [
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0402",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": false,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-07-14",
+            "as_of": "2026-09-15",
+            "deadline": "2026-09-12",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "fail: window of 60 days expired on 2026-09-12",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-03-TX-0402-WINDOW",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "The dispute window for a duplicate charge is **60 days** from the transaction date.\n\nFor TX-0402 (TechMart Online, 240.00 EUR, 2026-07-14), that window closed on **2026-09-12**. As of 2026-09-15, the eligibility check refused the dispute because the window has expired, so I have not opened one.\n\nIf you think the charge was not a true duplicate, or you have other information about it, I can escalat"
+      ],
+      "latency_ms": 3955,
+      "tokens": 6834,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window duplicate charge days"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window duplicate charge days",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.0553,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 0.8165,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "glossary.md#s3",
+                "doc": "glossary.md",
+                "score": 0.6124,
+                "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "doc": "disputes-process.md",
+                "score": 0.61,
+                "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0402",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": false,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-07-14",
+            "as_of": "2026-09-15",
+            "deadline": "2026-09-12",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "fail: window of 60 days expired on 2026-09-12",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-03-TX-0402-ELIGIBLE",
+      "layer": "action",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "tool_result_flag",
+        "detail": "check_dispute_eligibility.eligible = False"
+      },
+      "answers": [
+        "I checked TX-0402 (TechMart Online, 240.00 EUR, 2026-07-14) for a duplicate-charge dispute. **It is not eligible, so I have not opened a dispute.**\n\n- **Reason:** The dispute window for duplicate charges is 60 days from the transaction date. That window closed on 2026-09-12, and today is 2026-09-15.\n- **Other checks:** The reason code and transaction status passed. Nothing else blocks the dispute,"
+      ],
+      "latency_ms": 3658,
+      "tokens": 6069,
+      "tool_calls": [
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0402",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": false,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-07-14",
+            "as_of": "2026-09-15",
+            "deadline": "2026-09-12",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "fail: window of 60 days expired on 2026-09-12",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-03-TX-0401-WINDOW",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "The dispute window for a **duplicate charge** is **60 days** from the transaction date, according to Verta's dispute rules.\n\nFor TX-0401 (dated 2026-07-20), counting from that date, the window closes on **2026-09-18**. As of 2026-09-15, 57 days have elapsed, so about 3 days remain.\n\nI haven't opened a dispute. If you want to proceed, I can run the eligibility check for TX-0401 first, and then open"
+      ],
+      "latency_ms": 4472,
+      "tokens": 6584,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window duplicate charge days"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window duplicate charge days",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.0553,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 0.8165,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "glossary.md#s3",
+                "doc": "glossary.md",
+                "score": 0.6124,
+                "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "doc": "disputes-process.md",
+                "score": 0.61,
+                "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-03-TX-0401-ELIGIBLE",
+      "layer": "action",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "tool_result_flag",
+        "detail": "check_dispute_eligibility.eligible = True"
+      },
+      "answers": [
+        "Yes, TX-0401 can still be disputed under the duplicate charge reason. I have not opened a dispute.\n\n- **Transaction:** TechMart Online, 240.00 EUR, dated 2026-07-20\n- **Reason code:** duplicate_charge\n- **Window:** 60 days from the transaction date\n- **Deadline:** 2026-09-18, three days after today (2026-09-15)\n\nIf you want to proceed, tell me and I will open the dispute. It must be submitted befo"
+      ],
+      "latency_ms": 2788,
+      "tokens": 5889,
+      "tool_calls": [
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0401",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-07-20",
+            "as_of": "2026-09-15",
+            "deadline": "2026-09-18",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-09",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "As of 2026-09-15, you have **EUR 964,666.00** left of your monthly transfer limit.\n\n- Monthly limit (tier 3): EUR 1,000,000.00\n- Spent this month: EUR 35,334.00\n- Remaining: EUR 964,666.00\n\nYour monthly limit applies to your customer profile, and you have one account on file (ACC-1011, GBP). The daily limit is tracked separately: EUR 95,086.00 of EUR 100,000.00 remains today."
+      ],
+      "latency_ms": 5600,
+      "tokens": 8738,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0010",
+              "name": "Jonas Weber",
+              "tier": "tier3"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1011",
+                "customer_id": "CUS-0010",
+                "currency": "GBP",
+                "balance": 61200.0,
+                "tier": "tier3",
+                "holder": "Jonas Weber"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_limits",
+          "arguments": {
+            "customer_id": "CUS-0010"
+          },
+          "result": {
+            "tier": "tier3",
+            "as_of": "2026-09-15",
+            "daily_limit_eur": 100000,
+            "daily_spent_eur": 4914.0,
+            "daily_remaining_eur": 95086.0,
+            "monthly_limit_eur": 1000000,
+            "monthly_spent_eur": 35334.0,
+            "monthly_remaining_eur": 964666.0
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-09-TOOL",
+      "layer": "action",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "tool_result_numeric",
+        "detail": "check_limits.monthly_remaining_eur = 964666.0"
+      },
+      "answers": [
+        "As of 2026-09-15, you have **EUR 964,666.00** remaining of your monthly transfer limit.\n\n- Monthly limit (tier 3): EUR 1,000,000.00\n- Spent this month: EUR 35,334.00\n- Remaining: EUR 964,666.00\n\nThe limit applies to your customer profile, not to each account. You have one account on file, ACC-1011 (GBP), so this is the full remaining amount."
+      ],
+      "latency_ms": 4212,
+      "tokens": 8706,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0010",
+              "name": "Jonas Weber",
+              "tier": "tier3"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1011",
+                "customer_id": "CUS-0010",
+                "currency": "GBP",
+                "balance": 61200.0,
+                "tier": "tier3",
+                "holder": "Jonas Weber"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_limits",
+          "arguments": {
+            "customer_id": "CUS-0010"
+          },
+          "result": {
+            "tier": "tier3",
+            "as_of": "2026-09-15",
+            "daily_limit_eur": 100000,
+            "daily_spent_eur": 4914.0,
+            "daily_remaining_eur": 95086.0,
+            "monthly_limit_eur": 1000000,
+            "monthly_spent_eur": 35334.0,
+            "monthly_remaining_eur": 964666.0
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-11-TX-0902-WINDOW",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "The dispute window for **fraud_card_not_present is 120 days** from the transaction date.\n\nFor TX-0902 (PharmaPlus, EUR 62.30, dated 2026-09-12):\n- **Window:** 120 days\n- **Deadline:** 2027-01-10\n- **Eligibility as of 2026-09-15:** Eligible. The reason code, transaction status, window, and account checks all passed.\n\nI haven't opened a dispute. Would you like me to open one under fraud_card_not_pre"
+      ],
+      "latency_ms": 4332,
+      "tokens": 6913,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window days fraud card not present"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window days fraud card not present",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.206,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 1.0206,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "security-policy.md#s2",
+                "doc": "security-policy.md",
+                "score": 0.7845,
+                "text": "Customer security policy\n## Card blocking\nA customer may block a card immediately. Blocking is reversible for 30 days;\nafter that a replacement card must be ordered."
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "doc": "disputes-process.md",
+                "score": 0.7625,
+                "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0902",
+            "reason_code": "fraud_card_not_present"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "fraud_card_not_present",
+            "window_days": 120,
+            "tx_date": "2026-09-12",
+            "as_of": "2026-09-15",
+            "deadline": "2027-01-10",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-11-TX-0902-ELIGIBLE",
+      "layer": "action",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "tool_result_flag",
+        "detail": "check_dispute_eligibility.eligible = True"
+      },
+      "answers": [
+        "Yes, TX-0902 (PharmaPlus, 2026-09-12, EUR 62.30) is eligible for a dispute under the fraud card-not-present reason code. I have not opened one.\n\n- **Dispute window:** 120 days from the transaction date\n- **Deadline:** 2027-01-10\n- **Checks:** reason code, transaction status, window, and account status all passed\n\nIf you want to proceed, tell me and I will open the dispute for the full EUR 62.30."
+      ],
+      "latency_ms": 3178,
+      "tokens": 5993,
+      "tool_calls": [
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0902",
+            "reason_code": "fraud_card_not_present"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "fraud_card_not_present",
+            "window_days": 120,
+            "tx_date": "2026-09-12",
+            "as_of": "2026-09-15",
+            "deadline": "2027-01-10",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-12-TX-0201-WINDOW",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "The dispute window for a **duplicate charge** is **60 days** from the transaction date (Verta dispute rules).\n\nFor TX-0201 (CloudServe Subscription, 2026-09-08):\n- Days elapsed as of 2026-09-15: 7\n- Days remaining: 53\n- Window closes: 2026-11-07\n\nThis is the window only. I have not checked whether TX-0201 is eligible to be disputed. If you want to proceed, I can run the eligibility check for this "
+      ],
+      "latency_ms": 5102,
+      "tokens": 6520,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window duplicate charge days"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window duplicate charge days",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.0553,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 0.8165,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "glossary.md#s3",
+                "doc": "glossary.md",
+                "score": 0.6124,
+                "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "doc": "disputes-process.md",
+                "score": 0.61,
+                "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-12-TX-0201-ELIGIBLE",
+      "layer": "action",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "tool_result_flag",
+        "detail": "check_dispute_eligibility.eligible = True"
+      },
+      "answers": [
+        "Yes, transaction TX-0201 is eligible for a duplicate-charge dispute. I have not opened a dispute.\n\n- **Transaction:** CloudServe Subscription, 89.99 EUR, dated 2026-09-08\n- **Reason code:** duplicate_charge\n- **Dispute window:** 60 days, so the deadline is 2026-11-07\n- **Checks:** reason code, transaction status, window and account restrictions all passed\n\nIf you want to proceed, tell me and I wil"
+      ],
+      "latency_ms": 2584,
+      "tokens": 5815,
+      "tool_calls": [
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0201",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-09-08",
+            "as_of": "2026-09-15",
+            "deadline": "2026-11-07",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-12-TX-0202-WINDOW",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "The dispute window for a duplicate charge is **60 days** from the transaction date.\n\nFor TX-0202 (CloudServe Subscription, 2026-09-08, 89.99 USD):\n- The window runs until **2026-11-07**, so the transaction is currently within it as of 2026-09-15.\n- The eligibility check passed on all criteria (reason code, transaction status, window, and account status).\n\nI have not opened a dispute. If you want m"
+      ],
+      "latency_ms": 3275,
+      "tokens": 6675,
+      "tool_calls": [
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0202",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-09-08",
+            "as_of": "2026-09-15",
+            "deadline": "2026-11-07",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        },
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window duplicate charge days"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window duplicate charge days",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.0553,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 0.8165,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "glossary.md#s3",
+                "doc": "glossary.md",
+                "score": 0.6124,
+                "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "doc": "disputes-process.md",
+                "score": 0.61,
+                "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-12-TX-0202-ELIGIBLE",
+      "layer": "action",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 1,
+        "assertion": "tool_result_flag",
+        "detail": "check_dispute_eligibility.eligible = True"
+      },
+      "answers": [
+        "Yes, TX-0202 is eligible for a dispute under the duplicate charge reason code. I have not opened a dispute.\n\n- **Transaction:** CloudServe Subscription, 89.99 USD, dated 2026-09-08\n- **Reason code:** duplicate_charge\n- **Window:** 60 days, so the deadline is 2026-11-07\n- **Checks:** reason code, transaction status, dispute window and account hold all passed\n\nIf you want to proceed, tell me and I w"
+      ],
+      "latency_ms": 3940,
+      "tokens": 5876,
+      "tool_calls": [
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0202",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-09-08",
+            "as_of": "2026-09-15",
+            "deadline": "2026-11-07",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-13-tier1",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 3,
+        "assertion": "regex",
+        "detail": ""
+      },
+      "answers": [
+        "Per the Verta tariff schedule in the knowledge base:\n\n| Tier | FX spread (over mid-market rate) | Free monthly conversion allowance |\n|---|---|---|\n| Tier 1 | 1.5% | EUR 500 |\n| Tier 2 | 0.9% | EUR 1,000 |\n| Tier 3 | 0.5% | EUR 5,000 |\n\nNotes from the same documentation:\n- The spread applies only after the free monthly allowance is used up.\n- The allowance is counted in EUR equivalent and resets o"
+      ],
+      "latency_ms": 2961,
+      "tokens": 6492,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "FX spread and free monthly allowance by tier in EUR"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "FX spread and free monthly allowance by tier in EUR",
+            "fragments": [
+              {
+                "id": "tariffs.md#s2",
+                "doc": "tariffs.md",
+                "score": 2.6348,
+                "text": "Verta tariff schedule\n## FX spreads by tier\nThe spread is applied over the mid-market rate only after the free monthly\nconversion allowance is exhausted.\n\n| Tier | FX spread | Free monthly conversion allowance |\n|---|---|---|\n| Tier 1 | 1.5% | EUR 500 |\n| Tier 2 | 0.9% | EUR 1,000 |\n| Tier 3 | 0.5% | EUR 5,000 |"
+              },
+              {
+                "id": "limits.md#s1",
+                "doc": "limits.md",
+                "score": 2.3094,
+                "text": "Transfer limits\n## Daily and monthly limits by tier\nOutgoing transfer limits are tracked in EUR equivalent, separately per day and\nper calendar month. The daily and the monthly remainder are different numbers:\nboth are computed from the same settled-transactions source, but over\ndifferent windows.\n\n| Tier | Daily limit | Monthly limit |\n|---|---|---|\n| Tier 1 | EUR 5,000 | EUR 50,000 |\n| Tier 2 | EUR 20,000 | EUR 200,000 |\n| Tier 3 | EUR 100,000 | EUR 1,000,000 |"
+              },
+              {
+                "id": "onboarding.md#s2",
+                "doc": "onboarding.md",
+                "score": 1.8766,
+                "text": "Onboarding and tiers\n## Tier benefits\nA higher tier lowers the FX spread, raises the free monthly conversion\nallowance and raises both transfer limits."
+              },
+              {
+                "id": "fx-operations.md#s3",
+                "doc": "fx-operations.md",
+                "score": 1.4699,
+                "text": "Currency conversion operations\n## Allowance accounting\nThe free monthly conversion allowance is counted in EUR equivalent and resets on\nthe first calendar day of each month. Allowance consumption is recorded at\nsettlement. A conversion that would cross the allowance boundary has the tier\nspread applied to the entire conversion, not only to the portion above the\nboundary."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-13-tier2",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 3,
+        "assertion": "regex",
+        "detail": ""
+      },
+      "answers": [
+        "Per the Verta tariff schedule in our documentation:\n\n| Tier | FX spread (over mid-market rate) | Free monthly conversion allowance |\n|---|---|---|\n| Tier 1 | 1.5% | EUR 500 |\n| Tier 2 | 0.9% | EUR 1,000 |\n| Tier 3 | 0.5% | EUR 5,000 |\n\nNotes from the same documentation:\n- The spread applies only after the free monthly allowance is used up.\n- The allowance is counted in EUR equivalent and resets on"
+      ],
+      "latency_ms": 3097,
+      "tokens": 6505,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "FX spread and free monthly allowance in EUR by tier"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "FX spread and free monthly allowance in EUR by tier",
+            "fragments": [
+              {
+                "id": "tariffs.md#s2",
+                "doc": "tariffs.md",
+                "score": 2.6348,
+                "text": "Verta tariff schedule\n## FX spreads by tier\nThe spread is applied over the mid-market rate only after the free monthly\nconversion allowance is exhausted.\n\n| Tier | FX spread | Free monthly conversion allowance |\n|---|---|---|\n| Tier 1 | 1.5% | EUR 500 |\n| Tier 2 | 0.9% | EUR 1,000 |\n| Tier 3 | 0.5% | EUR 5,000 |"
+              },
+              {
+                "id": "limits.md#s1",
+                "doc": "limits.md",
+                "score": 2.3094,
+                "text": "Transfer limits\n## Daily and monthly limits by tier\nOutgoing transfer limits are tracked in EUR equivalent, separately per day and\nper calendar month. The daily and the monthly remainder are different numbers:\nboth are computed from the same settled-transactions source, but over\ndifferent windows.\n\n| Tier | Daily limit | Monthly limit |\n|---|---|---|\n| Tier 1 | EUR 5,000 | EUR 50,000 |\n| Tier 2 | EUR 20,000 | EUR 200,000 |\n| Tier 3 | EUR 100,000 | EUR 1,000,000 |"
+              },
+              {
+                "id": "onboarding.md#s2",
+                "doc": "onboarding.md",
+                "score": 1.8766,
+                "text": "Onboarding and tiers\n## Tier benefits\nA higher tier lowers the FX spread, raises the free monthly conversion\nallowance and raises both transfer limits."
+              },
+              {
+                "id": "fx-operations.md#s3",
+                "doc": "fx-operations.md",
+                "score": 1.4699,
+                "text": "Currency conversion operations\n## Allowance accounting\nThe free monthly conversion allowance is counted in EUR equivalent and resets on\nthe first calendar day of each month. Allowance consumption is recorded at\nsettlement. A conversion that would cross the allowance boundary has the tier\nspread applied to the entire conversion, not only to the portion above the\nboundary."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-13-tier3",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 3,
+        "assertion": "regex",
+        "detail": ""
+      },
+      "answers": [
+        "Here are the FX spreads and free monthly conversion allowances by tier, from the Verta tariff schedule:\n\n| Tier | FX spread | Free monthly conversion allowance (EUR) |\n|---|---|---|\n| Tier 1 | 1.5% | EUR 500 |\n| Tier 2 | 0.9% | EUR 1,000 |\n| Tier 3 | 0.5% | EUR 5,000 |\n\nThe spread applies over the mid-market rate only after the monthly allowance is used up. The allowance is counted in EUR equivale"
+      ],
+      "latency_ms": 3231,
+      "tokens": 6419,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "FX spread and free monthly allowance in EUR for all tiers"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "FX spread and free monthly allowance in EUR for all tiers",
+            "fragments": [
+              {
+                "id": "tariffs.md#s2",
+                "doc": "tariffs.md",
+                "score": 1.8028,
+                "text": "Verta tariff schedule\n## FX spreads by tier\nThe spread is applied over the mid-market rate only after the free monthly\nconversion allowance is exhausted.\n\n| Tier | FX spread | Free monthly conversion allowance |\n|---|---|---|\n| Tier 1 | 1.5% | EUR 500 |\n| Tier 2 | 0.9% | EUR 1,000 |\n| Tier 3 | 0.5% | EUR 5,000 |"
+              },
+              {
+                "id": "onboarding.md#s2",
+                "doc": "onboarding.md",
+                "score": 1.6681,
+                "text": "Onboarding and tiers\n## Tier benefits\nA higher tier lowers the FX spread, raises the free monthly conversion\nallowance and raises both transfer limits."
+              },
+              {
+                "id": "limits.md#s1",
+                "doc": "limits.md",
+                "score": 1.6166,
+                "text": "Transfer limits\n## Daily and monthly limits by tier\nOutgoing transfer limits are tracked in EUR equivalent, separately per day and\nper calendar month. The daily and the monthly remainder are different numbers:\nboth are computed from the same settled-transactions source, but over\ndifferent windows.\n\n| Tier | Daily limit | Monthly limit |\n|---|---|---|\n| Tier 1 | EUR 5,000 | EUR 50,000 |\n| Tier 2 | EUR 20,000 | EUR 200,000 |\n| Tier 3 | EUR 100,000 | EUR 1,000,000 |"
+              },
+              {
+                "id": "fx-operations.md#s3",
+                "doc": "fx-operations.md",
+                "score": 1.3363,
+                "text": "Currency conversion operations\n## Allowance accounting\nThe free monthly conversion allowance is counted in EUR equivalent and resets on\nthe first calendar day of each month. Allowance consumption is recorded at\nsettlement. A conversion that would cross the allowance boundary has the tier\nspread applied to the entire conversion, not only to the portion above the\nboundary."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-14",
+      "layer": "generation",
+      "oracle": "engine",
+      "severity": "high",
+      "gate": "daily",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 3,
+        "assertion": "regex",
+        "detail": ""
+      },
+      "answers": [
+        "Verta supports five dispute reason codes:\n\n1. **duplicate_charge**: 60-day window\n2. **fraud_card_not_present**: 120-day window\n3. **goods_not_received**: 90-day window\n4. **service_not_rendered**: 90-day window\n5. **unauthorized_debit**: 56-day window\n\nThe dispute window for a **duplicate charge is 60 days**, counted from the transaction date. A dispute raised after that window closes is not elig"
+      ],
+      "latency_ms": 2740,
+      "tokens": 6197,
+      "tool_calls": [
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window duplicate charge days"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window duplicate charge days",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 1.0553,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "limits-operations.md#s5",
+                "doc": "limits-operations.md",
+                "score": 0.8165,
+                "text": "Limit operations\n## Window definition\nLimits are tracked on calendar days, not business days. The daily window runs\nfrom 00:00 to 23:59 CET."
+              },
+              {
+                "id": "glossary.md#s3",
+                "doc": "glossary.md",
+                "score": 0.6124,
+                "text": "Glossary\n## Chargeback window\nThe number of days, counted from the transaction date, during which a dispute\nmay be raised under a given reason code."
+              },
+              {
+                "id": "disputes-process.md#s4",
+                "doc": "disputes-process.md",
+                "score": 0.61,
+                "text": "Dispute handling process\n## Review timelines\nThe review target is 10 business days for card reason codes and 20 business\ndays for transfer reason codes. Complex cases involving a foreign acquirer may\nrun to 45 calendar days; the customer is notified when that happens."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": false,
+      "id": "CMP-C-18",
+      "layer": "memory",
+      "oracle": "human",
+      "severity": "high",
+      "gate": "release",
+      "runs": 1,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "numeric",
+        "detail": ""
+      },
+      "answers": [
+        "You told me TX-0401 was **240.00 EUR**. That matches the transaction on your account."
+      ],
+      "latency_ms": 12639,
+      "tokens": 5234,
+      "tool_calls": []
+    },
+    {
+      "skipped": true,
+      "id": "HUM-001",
+      "layer": "generation",
+      "oracle": "human",
+      "severity": "high",
+      "gate": "release",
+      "runs": 1,
+      "verdict": {
+        "passed": false,
+        "level": 7,
+        "assertion": "judge",
+        "detail": "judge not configured (set JUDGE_MODEL)"
+      },
+      "answers": [
+        "I found the two CloudServe charges and both are eligible for a duplicate-charge dispute. I haven't opened either one yet, because I need you to confirm first.\n\n**What I found (8 September 2026, CloudServe Subscription, both settled):**\n- **TX-0201:** €89.99 from your EUR account (ACC-1002)\n- **TX-0202:** $89.99 from your USD account (ACC-1003)\n\nThe two charges are on different accounts and in diff"
+      ],
+      "latency_ms": 9529,
+      "tokens": 14346,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0002",
+              "name": "Borys Tkachenko",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1002",
+                "customer_id": "CUS-0002",
+                "currency": "EUR",
+                "balance": 8900.0,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              },
+              {
+                "id": "ACC-1003",
+                "customer_id": "CUS-0002",
+                "currency": "USD",
+                "balance": 5200.75,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_transactions",
+          "arguments": {
+            "account_id": "ACC-1002",
+            "limit": 20
+          },
+          "result": {
+            "transactions": [
+              {
+                "id": "TX-0203",
+                "account_id": "ACC-1002",
+                "date": "2026-09-12",
+                "amount": 450.0,
+                "currency": "EUR",
+                "merchant": "FlightHub Booking",
+                "direction": "out",
+                "transfer_type": "card",
+                "status": "settled"
+              },
+              {
+                "id": "TX-0201",
+                "account_id": "ACC-1002",
+                "date": "2026-09-08",
+                "amount": 89.99,
+                "currency": "EUR",
+                "merchant": "CloudServe Subscription",
+                "direction": "out",
+                "transfer_type": "card",
+                "status": "settled"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_transactions",
+          "arguments": {
+            "account_id": "ACC-1003",
+            "limit": 20
+          },
+          "result": {
+            "transactions": [
+              {
+                "id": "TX-0204",
+                "account_id": "ACC-1003",
+                "date": "2026-09-12",
+                "amount": 450.0,
+                "currency": "USD",
+                "merchant": "FlightHub Booking",
+                "direction": "out",
+                "transfer_type": "card",
+                "status": "settled"
+              },
+              {
+                "id": "TX-0202",
+                "account_id": "ACC-1003",
+                "date": "2026-09-08",
+                "amount": 89.99,
+                "currency": "USD",
+                "merchant": "CloudServe Subscription",
+                "direction": "out",
+                "transfer_type": "card",
+                "status": "settled"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0201",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-09-08",
+            "as_of": "2026-09-15",
+            "deadline": "2026-11-07",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        },
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0202",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": true,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-09-08",
+            "as_of": "2026-09-15",
+            "deadline": "2026-11-07",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "pass"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "skipped": true,
+      "id": "HUM-002",
+      "layer": "generation",
+      "oracle": "human",
+      "severity": "high",
+      "gate": "release",
+      "runs": 1,
+      "verdict": {
+        "passed": false,
+        "level": 7,
+        "assertion": "judge",
+        "detail": "judge not configured (set JUDGE_MODEL)"
+      },
+      "answers": [
+        "I'm sorry, I understand this is frustrating, especially after being told earlier that you could dispute it.\n\n**Why TX-0402 can't be disputed under duplicate charge**\n\n- TX-0402 is a €240.00 card payment to TechMart Online on 14 July 2026. It is settled.\n- Duplicate-charge disputes must be opened within 60 days of the transaction date. That window closed on 12 September 2026, and today is 15 Septem"
+      ],
+      "latency_ms": 11043,
+      "tokens": 14512,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0004",
+              "name": "Danylo Kovalenko",
+              "tier": "tier1"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1005",
+                "customer_id": "CUS-0004",
+                "currency": "EUR",
+                "balance": 1310.2,
+                "tier": "tier1",
+                "holder": "Danylo Kovalenko"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_transactions",
+          "arguments": {
+            "account_id": "ACC-1005",
+            "limit": 50
+          },
+          "result": {
+            "transactions": [
+              {
+                "id": "TX-0403",
+                "account_id": "ACC-1005",
+                "date": "2026-09-01",
+                "amount": 35.5,
+                "currency": "EUR",
+                "merchant": "CityParking",
+                "direction": "out",
+                "transfer_type": "card",
+                "status": "settled"
+              },
+              {
+                "id": "TX-0401",
+                "account_id": "ACC-1005",
+                "date": "2026-07-20",
+                "amount": 240.0,
+                "currency": "EUR",
+                "merchant": "TechMart Online",
+                "direction": "out",
+                "transfer_type": "card",
+                "status": "settled"
+              },
+              {
+                "id": "TX-0402",
+                "account_id": "ACC-1005",
+                "date": "2026-07-14",
+                "amount": 240.0,
+                "currency": "EUR",
+                "merchant": "TechMart Online",
+                "direction": "out",
+                "transfer_type": "card",
+                "status": "settled"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0402",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "eligible": false,
+            "reason_code": "duplicate_charge",
+            "window_days": 60,
+            "tx_date": "2026-07-14",
+            "as_of": "2026-09-15",
+            "deadline": "2026-09-12",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "fail: window of 60 days expired on 2026-09-12",
+              "compliance_hold": "pass"
+            }
+          }
+        },
+        {
+          "name": "search_knowledge_base",
+          "arguments": {
+            "query": "dispute window deadline card transaction reasons"
+          },
+          "result": {
+            "index": "kb_clean",
+            "top_k": 4,
+            "query": "dispute window deadline card transaction reasons",
+            "fragments": [
+              {
+                "id": "disputes.md#s1",
+                "doc": "disputes.md",
+                "score": 0.9045,
+                "text": "Payment dispute rules\n## Reason codes and chargeback windows\nEach reason code has a window in days from the transaction date. A dispute opened after the window closes is not eligible.\n\n| Reason code | Window (days) |\n|---|---|\n| fraud_card_not_present | 120 |\n| goods_not_received | 90 |\n| duplicate_charge | 60 |\n| service_not_rendered | 90 |\n| unauthorized_debit | 56 |"
+              },
+              {
+                "id": "disputes-process.md#s1",
+                "doc": "disputes-process.md",
+                "score": 0.7143,
+                "text": "Dispute handling process\n## Raising a dispute\nA dispute is raised against a single settled transaction. The customer supplies\nthe transaction reference and a reason code. The agent verifies eligibility\nbefore the case is opened; an ineligible request is refused with the failing\ncondition named, except where confidentiality rules apply."
+              },
+              {
+                "id": "disputes-process.md#s6",
+                "doc": "disputes-process.md",
+                "score": 0.7071,
+                "text": "Dispute handling process\n## Withdrawing a dispute\nA customer may withdraw a dispute at any time before resolution. Withdrawal is\nfinal; the same transaction cannot be disputed again under the same reason code."
+              },
+              {
+                "id": "disputes.md#s2",
+                "doc": "disputes.md",
+                "score": 0.635,
+                "text": "Payment dispute rules\n## Eligibility conditions\nA dispute is eligible only if all of the following hold: the reason code is\nvalid; the transaction status is settled; the transaction date is within the\nreason code's window relative to the current date; and no customer-level\nrestriction applies (for example, an account under compliance review cannot\nopen new disputes until the review concludes)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "skipped": true,
+      "id": "HUM-003",
+      "layer": "generation",
+      "oracle": "human",
+      "severity": "high",
+      "gate": "release",
+      "runs": 1,
+      "verdict": {
+        "passed": false,
+        "level": 7,
+        "assertion": "judge",
+        "detail": "judge not configured (set JUDGE_MODEL)"
+      },
+      "answers": [
+        "I can't open the dispute for TX-0601 right now, and I can't share the specific reason for this restriction. I've escalated your case to a human support agent (escalation ID 1, currently queued), and they are the right contact for the details.\n\n**Where things stand:**\n- **Transaction:** TX-0601, FurnitureLoft, dated 16 August 2026.\n- **Dispute reason:** goods not received.\n- **Dispute status:** not"
+      ],
+      "latency_ms": 9890,
+      "tokens": 10184,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0006",
+              "name": "Farid Aliyev",
+              "tier": "tier1"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1007",
+                "customer_id": "CUS-0006",
+                "currency": "EUR",
+                "balance": 3050.0,
+                "tier": "tier1",
+                "holder": "Farid Aliyev"
+              }
+            ]
+          }
+        },
+        {
+          "name": "check_dispute_eligibility",
+          "arguments": {
+            "transaction_id": "TX-0601",
+            "reason_code": "goods_not_received"
+          },
+          "result": {
+            "eligible": false,
+            "reason_code": "goods_not_received",
+            "window_days": 90,
+            "tx_date": "2026-08-16",
+            "as_of": "2026-09-15",
+            "deadline": "2026-11-14",
+            "checks": {
+              "reason_code": "pass",
+              "tx_status": "pass",
+              "window": "pass",
+              "compliance_hold": "fail: a customer-level restriction applies; escalation required"
+            }
+          }
+        },
+        {
+          "name": "escalate_to_human",
+          "arguments": {
+            "customer_id": "CUS-0006",
+            "reason": "Customer wants to dispute TX-0601 (FurnitureLoft order, goods not received, tx date 2026-08-16). check_dispute_eligibility returned eligible=false due to a customer-level restriction (compliance_hold check failed; escalation required). Dispute not opened. Customer asks why it is blocked and what happens next. Dispute window deadline: 2026-11-14."
+          },
+          "result": {
+            "escalation_id": 1,
+            "status": "queued"
+          }
+        }
+      ]
+    },
+    {
+      "skipped": true,
+      "id": "HUM-004",
+      "layer": "generation",
+      "oracle": "human",
+      "severity": "high",
+      "gate": "release",
+      "runs": 1,
+      "verdict": {
+        "passed": false,
+        "level": 7,
+        "assertion": "judge",
+        "detail": "judge not configured (set JUDGE_MODEL)"
+      },
+      "answers": [
+        "I'm sorry about the confusion, and I understand it's frustrating to repeat yourself. I've passed your request to a human support agent (escalation ID 1, status: queued). I've noted that your question is about your USD account, ACC-1003, and that earlier replies mixed it up with your EUR account, ACC-1002.\n\nFor reference, the balance on ACC-1003 (USD) is 5,200.75 USD. The EUR account, ACC-1002, has"
+      ],
+      "latency_ms": 5184,
+      "tokens": 9267,
+      "tool_calls": [
+        {
+          "name": "get_account",
+          "arguments": {},
+          "result": {
+            "customer": {
+              "id": "CUS-0002",
+              "name": "Borys Tkachenko",
+              "tier": "tier2"
+            },
+            "accounts": [
+              {
+                "id": "ACC-1002",
+                "customer_id": "CUS-0002",
+                "currency": "EUR",
+                "balance": 8900.0,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              },
+              {
+                "id": "ACC-1003",
+                "customer_id": "CUS-0002",
+                "currency": "USD",
+                "balance": 5200.75,
+                "tier": "tier2",
+                "holder": "Borys Tkachenko"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escalate_to_human",
+          "arguments": {
+            "customer_id": "CUS-0002",
+            "reason": "Customer requested a human agent. Customer reports that earlier replies mixed up their EUR account (ACC-1002) and USD account (ACC-1003); they asked specifically about USD ACC-1003 and are frustrated at having to repeat themselves."
+          },
+          "result": {
+            "escalation_id": 1,
+            "status": "queued"
+          }
+        }
+      ]
+    }
+  ]
+}
